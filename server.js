@@ -42,12 +42,11 @@ app.set('views', './views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(__dirname + '/public' ));
 
 app.use(routes);
-// app.get('/', (req, res) => {
-//   res.render('homepage');
-// });
 
-sequelize.sync({ force: false }).then(() => {
+
+sequelize.sync({ alter: true, force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
