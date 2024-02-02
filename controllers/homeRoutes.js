@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 const { BlogPost, User, BlogComments} = require('../models');
 
+// displays all blog posts on homepage
 router.get('/', async (req, res) => {
     try {
         const blogPostData = await BlogPost.findAll({
@@ -40,7 +41,7 @@ router.get('/login', (req, res) => {
     res.render('login', {logged_in: req.session.logged_in});
   });
 
-
+//  pulls up a 1 blog post that the user selects
   router.get('/post/:id', (req, res) => {
     BlogPost.findOne({
       where: {

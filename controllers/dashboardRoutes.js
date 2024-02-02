@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { BlogPost, User, BlogComments } = require('../models');
 const withAuth = require('../utils/auth');
 
+// displays blog posts 
 router.get('/', withAuth, (req, res) => {
     BlogPost.findAll({
       where: {

@@ -17,7 +17,7 @@ router.post('/', withAuth, (req, res) => {
       });
 });
 
-// Updates a blog post 
+// Updates a blogpost 
 router.put('/:id', withAuth, (req, res) => {
     BlogPost.update({
         blog_title: req.body.blog_title,
