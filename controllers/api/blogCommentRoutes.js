@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {BlogComments} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+// saves comments in db
 router.post('/', withAuth, (req, res) => {
     // check the session
     if (req.session) {
@@ -20,6 +20,7 @@ router.post('/', withAuth, (req, res) => {
     }
   });
 
+  // displays blog comments
   router.get('/', (req, res) => {
     BlogComments.findAll({})
       .then(dbCommentData => res.json(dbCommentData))
