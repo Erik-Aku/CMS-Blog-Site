@@ -9,9 +9,9 @@ A CMS-style blog site similar to a Wordpress site, where developers can publish 
  - Run 'npm install to install the required packages
  - Run 'npm start' to start the local server
  - Add a .env file to the root of the project for database authentication
-    DB_NAME='crowdfund_db'
-    DB_USER='root'
-    DB_PASSWORD='XXX'
+    - DB_NAME='crowdfund_db'
+    - DB_USER='root'
+    - DB_PASSWORD='XXX'
 
 ## Application Deployment
 
