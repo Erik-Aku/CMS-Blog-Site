@@ -61,12 +61,12 @@ router.get('/create', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'blog_post_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['first_name']
+            attributes: ['first_name', 'last_name']
           }
         },
         {
           model: User,
-          attributes: ['first_name']
+          attributes: ['first_name', 'last_name']
         }
       ]
     })

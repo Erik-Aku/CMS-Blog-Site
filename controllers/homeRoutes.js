@@ -3,14 +3,6 @@ const sequelize = require("../config/connection");
 const withAuth = require('../utils/auth');
 const { BlogPost, User, BlogComments} = require('../models');
 
-// const { BlogPost, BlogComments, User } = require("../models");
-
-// router.get("/", async (req, res) => {
-//   res.render("homepage", {
-//     logged_in: req.session.logged_in,
-//   });
-// });
-
 router.get('/', async (req, res) => {
     try {
         const blogPostData = await BlogPost.findAll({
@@ -27,7 +19,6 @@ router.get('/', async (req, res) => {
             ],
         });
         const blogPost = blogPostData.map((post) => post.get({plain: true}));
-        console.log(blogPost)
 
         res.render('homepage', {
             blogPost,
@@ -42,7 +33,7 @@ router.get('/', async (req, res) => {
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-      res.redirect('/profile');
+      res.redirect('/dashboard/create');
       return;
     }
   
