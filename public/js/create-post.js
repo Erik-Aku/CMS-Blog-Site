@@ -2,9 +2,7 @@ async function newFormHandler(event) {
     event.preventDefault();
   
     const blog_title = document.querySelector('#blog-post-title').value;
-    console.log(blog_title);
     const blog_content = document.querySelector('#blog-post-content').value;
-    console.log(blog_content);
   
     const response = await fetch(`/api/blogpost`, {
       method: 'POST',
