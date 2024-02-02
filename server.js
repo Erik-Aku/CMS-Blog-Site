@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// const routes = require('./controllers');
+const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -17,7 +17,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 3600000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
@@ -42,12 +42,11 @@ app.set('views', './views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(__dirname + '/public' ));
 
-// app.use(routes);
-app.get('/', (req, res) => {
-  res.render('homepage');
-});
+app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+
+sequelize.sync({ alter: true, force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });

@@ -1,0 +1,33 @@
+    <nav id="nav-header" class="py-4 border-bottom navbar-light bg-light">
+      <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+          <li class="nav-item"><a
+              href="/"
+              class="nav-link link-body-emphasis px-1 active"
+              aria-current="page"
+            >Home</a></li>
+              <li class="nav-item"><a
+              href="/dashboard"
+              class="nav-link link-body-emphasis px-1 active"
+              aria-current="page"
+            >Dashboard</a></li>
+         <li class="nav-item">
+            {{!-- If user is logged in, display href to logged out, if user is not logged in, display login text and route to login page --}}
+             {{#if logged_in}}
+           <li class="nav-item"><button class="no-button nav-link link-body-emphasis px-2 nav-item" id="logout">Logout</button></li> 
+            {{else}}
+            <a href="/login"
+            class="nav-link link-body-emphasis px-2"
+            >login</a></li>
+            {{/if}}
+          </ul>  
+      </div>
+      <div class="container d-flex flex-wrap p-3">
+        <h1> The Tech Blog</h1>
+      </div>
+
+        {{#if logged_in}}
+  <script src="../../public/js/logout.js"></script>
+  {{/if}}
+    </nav>
+
