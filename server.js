@@ -50,3 +50,7 @@ app.use(routes);
 sequelize.sync({ alter: true, force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
+
+// sequelize.sync({ alter: true, force: true }).then(() => {
+//   app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
+// });
